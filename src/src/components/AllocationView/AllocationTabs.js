@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AllocationTable from './AllocationTable';
+import loader from '../Common/Loader'
 import {
     Button,
     Dialog,
@@ -55,6 +56,7 @@ const TabPanel = (props) => {
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
+      overflow:'auto'
     },
     marginTop : {
       marginTop: '50px'
@@ -62,6 +64,7 @@ const TabPanel = (props) => {
   }));
   
 export default   function AllocationTabs(props) {
+  debugger;
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const {allocationColumns, allocationData} = props
@@ -78,7 +81,9 @@ export default   function AllocationTabs(props) {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <AllocationTable allocationColumns = {allocationColumns} allocationData= {allocationData}/>
+          {/* {allocationData  ? <AllocationTable allocationColumns = {allocationColumns} allocationData= {allocationData}/> : loader ()} */}
+          {/* {allocationData && <AllocationTable allocationColumns = {allocationColumns} allocationData= {allocationData}/>} */}
+          <AllocationTable allocationColumns = {allocationColumns} />
         </TabPanel>
         
         <TabPanel value={value} index={1}>

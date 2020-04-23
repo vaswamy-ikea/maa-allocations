@@ -27,7 +27,7 @@ class SaleSpaceStructure extends React.Component {
 
 
 const mapStateToProps = state => ({
-    tableData: state.tableData
+    tableData: state.tableData,
 })
 
 const mapDispatchToProps  = dispatch => ({

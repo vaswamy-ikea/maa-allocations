@@ -9,20 +9,23 @@ import actions from '../../actions';
 import { Link } from 'react-router-dom';
 import paths from '../Routes/paths'
 import AllocationTabs from './AllocationTabs'
+import loader from '../Common/Loader'
 
 class AllocationView extends React.Component {
     constructor (props) {
         super(props) 
         this.state = {
-            allocationColumns: [
+          
+
+        allocationColumns: [ 
             {
-                name: "articleNumber", label: "Article Number"
+                name: "itemNo", label: "Article Number"
             },{
                 name: "articleDescription", label: "Article Description"
             },{
                 name: "hfb" ,label: "HFB"
             }, {
-                name: "pa", label: "PA"
+                name: "baPaNo", label: "PA"
             },{
                 name: "paName", label: "PA Name"
             }, {
@@ -34,15 +37,15 @@ class AllocationView extends React.Component {
             },{
                 name: 'rangeGroup', label: 'Range Group'
             }, {
-                name: 'secondLevelRangeGroup', label: 'Second Level Rangr Group'
+                name: 'secondLevelRangeGroup', label: 'Second Level Range Group'
             }, {
-                name: 'salesMethod', label: 'Sales Method'
+                name: 'suggestedSalesMethod', label: 'Sales Method'
             }, {
                 name: 'salesRanking', label: 'Sales Ranking '
             }, {
                 name: 'primaryLocation', label: 'Primary Location'
             }, {
-                name: 'HomebaseAllocationRatio', label: 'Homebase, Allocation Ratio (%)'
+                name: 'allocationRatio', label: 'Homebase, Allocation Ratio (%)'
             }, {
                 name: 'multipleSalesSpaceLocation' , label: 'Multiple SalesSpace Location'
             }, {
@@ -56,7 +59,7 @@ class AllocationView extends React.Component {
             }, {
                 name: 'dtfpF', label: 'DTFP_F'
             }, {
-                name: 'fthpPlusF', label: 'DTFP+_F'
+                name: 'dtfpPlusF', label: 'DTFP+_F'
             }
             ],
             allocationData : [
@@ -77,13 +80,25 @@ class AllocationView extends React.Component {
 
     render () {
         return (
-            <Grid Container>
-                <AllocationTabs  allocationColumns = {this.state.allocationColumns} allocationData= {this.state.allocationData} />
-            </Grid>
+            <Grid container>
+
+                {/* <AllocationTabs  allocationColumns = {this.state.allocationColumns} allocationData= {this.state.allocationData} /> */}
+                {/* <AllocationTabs  allocationColumns = {this.state.allocationColumns} allocationData= {this.props.detailedAllocationData} />             */}
+                <AllocationTabs  allocationColumns = {this.state.allocationColumns} />
+                            </Grid>
         )
     }
 }
 
-export default AllocationView
+
+const mapStateToProps = state => ({
+    detailedAllocationData: state.allocationView.detailedAllocation,
+})
+
+const mapDispatchToProps  = dispatch => ({
+    actions: bindActionCreators(actions,dispatch)
+})
+
+export default connect(mapStateToProps,mapDispatchToProps) (AllocationView)
 
 

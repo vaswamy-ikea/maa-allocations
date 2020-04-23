@@ -26,7 +26,7 @@ const loggerMiddleware = applyMiddleware(
 
 const store = createStore(
     createRootReducer(history),
-     composeWithDevTools(middleware, loggerMiddleware),
+     composeWithDevTools(middleware),
      
 );
 

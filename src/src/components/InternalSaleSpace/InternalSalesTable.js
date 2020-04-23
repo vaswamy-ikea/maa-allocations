@@ -15,8 +15,15 @@ class InternalSalesTable extends React.Component {
             selectedRow: null
           }
     }
-
+    handleRowClick (evt, row) {
+      debugger;
+      this.props.selectedSid(evt, row.sssid)
+      this.setState ({
+        selectedRow: row
+      })
+    }
     render () {
+      debugger;
         const tableIcons = {
             Filter: forwardRef((props,ref) => <FilterList {...props} ref= {ref}/>),
             SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />)
@@ -42,7 +49,7 @@ class InternalSalesTable extends React.Component {
             data={[
               { name: '001 - FEB 19 LOURES', sssid: '3130', storename: '001 - IKEA LISBON - LOURES', rucode: 'PT' , createdfrom: 'CSSS FY19', validdate: '10/08/2019', createdby: 'STBR', createdate: '10/08/2018',
               state: 'Archived', rangestore: '059', forecaststore: '001', lastcalculationdate: 63 },
-              { name: '002 - IKEA Kyiv - 2019-04-01', sssid: '3123', storename: '002 - IKEA Kyiv', rucode: 'UA' , createdfrom: 'CSSS FY20', validdate: '05/02/2020', createdby: 'KYATH', createdate: '05/02/2019',
+              { name: '002 - IKEA Kyiv - 2019-04-01', sssid: '3214', storename: '002 - IKEA Kyiv', rucode: 'UA' , createdfrom: 'CSSS FY20', validdate: '05/02/2020', createdby: 'KYATH', createdate: '05/02/2019',
               state: 'Available', rangestore: '001', forecaststore: '001', lastcalculationdate: 63 },
               { name: '062 - AUG 19 CAUSEWAY BAY', sssid: '3398', storename: '005 - IKEA AALBORG', rucode: 'CA' , createdfrom: 'CSSS FY18', validdate: '21/09/2018', createdby: 'drtel', createdate: '21/02/2018',
               state: 'Busy', rangestore: '007', forecaststore: '005', lastcalculationdate: 63 },
@@ -64,7 +71,7 @@ class InternalSalesTable extends React.Component {
               state: 'Available', rangestore: '059', forecaststore: '003', lastcalculationdate: 63 }
             ]}    
             // data={this.props.tableData}
-            onRowClick={((evt, selectedRow) => this.setState({ selectedRow }))}    
+            onRowClick={(evt, selectedRow) => this.handleRowClick (evt,selectedRow)}    
             options={{
               filtering: true,
               paging: false,
