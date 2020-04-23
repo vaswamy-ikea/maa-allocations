@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* DayPicker overrides */
+.DayPickerInput {
+  display: inline-block;
+}
+
+.DayPickerInput input {
+  font-size: inherit;
+  width: 70%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid grey;
+}
+
+.DayPickerInput input:hover {
+  border-bottom: 1px solid black;
+}
+
+.DayPickerInput input:focus {
+  border-bottom: 1px solid #0D47A1;
+}
+
+.iframe-container {
+overflow: hidden;
+position: relative;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: calc(100vh - 190px);
+  width: 100%;
+}
+
+/* clear 'remove' button in Edge */
+::-ms-clear { display: none; }
